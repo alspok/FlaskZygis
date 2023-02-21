@@ -1,0 +1,43 @@
+<html>
+    <body>
+        <form action='searchField' method="post">
+            <h3>Available files:</h3>
+            <div>(To add new csv file to list put it to ./DataFile/ folder)</div>
+            {% for item in file_list %}
+                <li>{{ item }}</li>
+            {% endfor %}
+            <h3>Select file:</h3>
+            <select name="select_file">
+                {% for item in file_list %}
+                    <option value={{item}}>{{item}}</option>
+                {% endfor %}
+            </select>
+
+            <h3>Select search field:</h3>
+            <select name="search_field">
+                <option value="EAN">EAN</option>
+                <option value="PRODUCT NAME">Product name</option>
+                <option value="ITEM SKU">Item SKU</option>
+                <option value="BRAND NAME">Brand name</option>
+                <option value="REQUIRED PRICE TO AMAZON">Required price to amazon</option>
+            </select>
+            
+            <h3>Input search field value:<h3>
+          <input type="text" name="search_value"/>
+          <button type="submit">Search</button>
+        </form>
+        
+        <h3>Search result:</h3>
+        <h5>SELECTED FILE: {{select_file}}</h5>
+        <h5>FIELD: {{field}}</h5>
+        <h5>VALUE: {{value}}</h5>
+        {% if bool %}
+            {% for item in dict_list %}
+                <li style="font-size:12px">{{item}}</li>
+            {% endfor %}
+        {% else %}
+            <h5>No search result.</h5>
+        {% endif %}
+
+    </body>
+</html>
