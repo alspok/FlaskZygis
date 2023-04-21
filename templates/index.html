@@ -2,9 +2,7 @@
     <body>
         <form action='searchField' method="post">
             <div style="font-size: 20px; font-weight: bold">Available files:</div>
-            <div>(Add new csv file to DataFile\ directory.</div>
-            <div> Add file name with directory to file_list</div>
-            <div> variable in InitValues.py file.)</div>
+            <div>Add new or delete csv file in DataFile\ directory. Add file name with directory to file_list variable in InitValues.py file.</div>
             <br>
             {% for item in file_list %}
                 <li>{{ item }}</li>
